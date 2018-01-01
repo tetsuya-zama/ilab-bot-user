@@ -1,0 +1,17 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: An AWS Serverless Specification template describing your function.
+Resources:
+  iLabBotUser:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: src/index.handler
+      Runtime: nodejs6.10
+      Description: 'iLab-botのユーザー管理関数'
+      MemorySize: 128
+      Timeout: 15
+      Environment: 
+        Variables:
+          ILAB_BOT_STORAGE_GET: ilab-bot-storage-get
+          ILAB_BOT_STORAGE_SET: ilab-bot-storage-set
+          ILAB_BOT_STORAGE_UNSET: ilab-bot-storage-unset
